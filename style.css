@@ -1,5 +1,5 @@
 #card-product {
-    height: 500px;
+    height: 400px;
     width: 300px;
 }
 
@@ -9,8 +9,10 @@
 }
 
 .card-text{
-    height: 100px;
+    height: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
+

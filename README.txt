@@ -1,15 +1,15 @@
-() PAGINA PER I PRODOTTI
-    () Collegamento alla pagina del prodotto
-    () Passa l'ID come query string nell'URL
+(x) PAGINA PER I PRODOTTI
+    (x) Collegamento alla pagina del prodotto
+    (x) Passa l'ID come query string nell'URL
 --------------------------------------------
 (x) PAGINA BACK OFFICE
     (x) Form per aggiungere un nuovo prodotto al database
     (x) Funzione per modificare un prodotto
     (x) Pulsante per eliminare un prodotto
 --------------------------------------------
-() PAGINA DEL SINGOLO PRODOTTO
-    () Mostrare le informazione del prodotto 
-    () Prendere le informazione dall'endpoint "product/IL TUO ID QUI"
+(x) PAGINA DEL SINGOLO PRODOTTO
+    (x) Mostrare le informazione del prodotto 
+    (x) Prendere le informazione dall'endpoint "product/IL TUO ID QUI"
 --------------------------------------------
 TIPS: 
 - per GET e POST possiamo usare questo endpoint: ""
