@@ -1,3 +1,8 @@
 .img-product img{
     width: 300px;
+    border-right: 1px solid #c7c7c7;
+}
+
+.info-article{
+    width: 400px;
 }

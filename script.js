@@ -18,7 +18,7 @@ const showArticle = async () => {
 
     if(articlesContainer) {
         articlesContainer.innerHTML = articles.map((article) => 
-            `<div class="col-2 col-md-3 col-lg-4" id="card-product">
+            `<div class="col-2 col-md-3 col-lg-4 card-product">
                 <div class="card shadow-sm w-100 h-100">
                     <div class="d-flex align-items-center justify-content-center mt-3"><img src="${article.imageUrl}" alt="immagine prodotto"></div>
                     <div class="card-body">
@@ -27,7 +27,7 @@ const showArticle = async () => {
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="./PaginaProdotto/prodotto.html?id=${article._id}" class='btn btn-sm btn-outline-secondary'>View</a>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Add To Cart</button>
+                                <button type="button" class="btn btn-sm btn-success" onclick="addToCart('${article.name}', '${article.price}', '${article.description}', '${article._id}')">Add To Cart</button>
                             </div>
                             <small class="text-body-secondary">€${article.price}</small>
                         </div>
@@ -37,4 +37,32 @@ const showArticle = async () => {
         ).join(``);
         // console.log(articlesContainer);
     }
+}
+
+// FUNZIONE PER AGGIUNGERE UN ARTICOLO AL CARRELLO
+const addToCart = (title, price, description, id) => {
+    let contenitore = document.getElementById(`cart`);
+      contenitore.innerHTML += `
+      <div class="card col-md-8 w-100 mb-2" id="${id}">
+        <div class="card-body">
+          <h5 class="card-title">${title}</h5>
+          <p id="price" class="cart-text m-0 p-0">€${price}</p>
+          <p id="description" class="cart-text my-2 p-0">${description}</p>
+          <button onclick="remove(${id})" class="btn btn-danger p-2 px-3"><i class="bi bi-trash3-fill"></i></button>
+        </div>
+      </div>`
+  };
+
+// FUNZIONE PER SVUOTARE IL CARRELLO 
+const deleteAll = () => {
+    let contenitore = document.getElementById(`cart`)
+    contenitore.innerHTML = ``;
+  }
+
+// FUNZIONE PER TOGLIERE UN ARTICOLO DAL CARRELLO
+const remove = (id) => {
+    console.log(id);
+    let card = document.getElementById(id);
+    console.log(card);
+    card.innerHTML = ``;
 }

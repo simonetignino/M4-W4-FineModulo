@@ -12,19 +12,32 @@ window.onload = async () => {
         },
     });
     const article = await response.json()
-    console.log(article);
+    // console.log(article);
     const container = document.getElementById(`article`)
     container.innerHTML = `
     <div class="product d-flex mt-5">
         <div class="img-product">
             <img src="${article.imageUrl}" alt="immagine articolo">
         </div>
-        <div class="info-article">
+        <div class="info-article mx-5">
             <h2>${article.name}</h2>
-            <p>${article.description}</p>
-            <p>${article.brand}</p>
-            <p>${article.price}</p>
+            <p class="mt-4">${article.description}</p>
+            <p class="fw-bold">${article.brand}</p>
+            <p>€${article.price}</p>
+            <button class="btn btn-success" onclick="addToCart('${article.name}', '${article.price}', '${article._id}' )">Aggiungi al Carrello</button>
         </div>
     </div>
     `
 }
+
+const addToCart = (title, price, id) => {
+    let contenitore = document.getElementById(`cart`);
+      contenitore.innerHTML += `
+      <div class="card col-md-8 w-100" id="${id}">
+        <div class="card-body">
+          <h5 class="card-title">${title}</h5>
+          <p id="price" class="card-text">€${price}</p>
+          <button onclick="remove(${id})" class="border-0 bg-transparent">Rimuovi</button>
+        </div>
+      </div>`
+  };
