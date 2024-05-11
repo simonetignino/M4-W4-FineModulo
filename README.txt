@@ -22,4 +22,4 @@ EXTRA:
 () Aggiungere una campo di input per effettuare una ricerca
 () Aggiungere focus sul nome del prodotto quando abilito la modifica
 () Nascondere l'elenco dei prodotti quando sono in modifica
-() Nascondere, nell'elenco dei prodotti, il nome quando è troppo lungo mettendo i tre pallini
+(x) Nascondere, nell'elenco dei prodotti, il nome quando è troppo lungo mettendo i tre pallini

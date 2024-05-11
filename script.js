@@ -38,6 +38,7 @@ const showArticle = async () => {
         // console.log(articlesContainer);
     }
 }
+let totCart = 0;
 
 // FUNZIONE PER AGGIUNGERE UN ARTICOLO AL CARRELLO
 const addToCart = (title, price, description, id) => {
@@ -48,9 +49,13 @@ const addToCart = (title, price, description, id) => {
           <h5 class="card-title">${title}</h5>
           <p id="price" class="cart-text m-0 p-0">€${price}</p>
           <p id="description" class="cart-text my-2 p-0">${description}</p>
-          <button onclick="remove(${id})" class="btn btn-danger p-2 px-3"><i class="bi bi-trash3-fill"></i></button>
+          <button onclick="removeArticle('${id}', '${price}')" class="btn btn-danger p-2 px-3"><i class="bi bi-trash3-fill fs-6"></i></button>
         </div>
       </div>`
+    const totale = document.querySelector("#totalPrice")
+    price = (Number(price));
+    totCart+=price;
+    totale.innerHTML = `Totale carrello: €${totCart.toFixed(2)}`;
   };
 
 // FUNZIONE PER SVUOTARE IL CARRELLO 
@@ -60,9 +65,12 @@ const deleteAll = () => {
   }
 
 // FUNZIONE PER TOGLIERE UN ARTICOLO DAL CARRELLO
-const remove = (id) => {
-    console.log(id);
-    let card = document.getElementById(id);
-    console.log(card);
-    card.innerHTML = ``;
+function removeArticle(idArticle, price) {
+    const totale = document.querySelector("#totalPrice");
+    console.log(price);
+    price = (Number(price));
+    totCart-=price;
+    totale.innerHTML = `Totale carrello: €${totCart.toFixed(2)}`;
+    const card = document.getElementById(idArticle);
+    card.remove();
 }
