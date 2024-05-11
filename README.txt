@@ -2,10 +2,10 @@
     () Collegamento alla pagina del prodotto
     () Passa l'ID come query string nell'URL
 --------------------------------------------
-() PAGINA BACK OFFICE
-    () Form per aggiungere un nuovo prodotto al database
-    () Funzione per modificare un prodotto
-    () Pulsante per eliminare un prodotto
+(x) PAGINA BACK OFFICE
+    (x) Form per aggiungere un nuovo prodotto al database
+    (x) Funzione per modificare un prodotto
+    (x) Pulsante per eliminare un prodotto
 --------------------------------------------
 () PAGINA DEL SINGOLO PRODOTTO
     () Mostrare le informazione del prodotto 
@@ -20,3 +20,6 @@ EXTRA:
 () Aggiungere spinner per il caricamento del prodotto nel backoffice
 () Aggiungere card con il caricamento 
 () Aggiungere una campo di input per effettuare una ricerca
+() Aggiungere focus sul nome del prodotto quando abilito la modifica
+() Nascondere l'elenco dei prodotti quando sono in modifica
+() Nascondere, nell'elenco dei prodotti, il nome quando è troppo lungo mettendo i tre pallini

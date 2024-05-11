@@ -1,0 +1,16 @@
+#card-product {
+    height: 500px;
+    width: 300px;
+}
+
+#card-product img {
+    width: 200px;
+    height: 200px;
+}
+
+.card-text{
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
