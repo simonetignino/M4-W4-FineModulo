@@ -62,12 +62,13 @@ const addToCart = (title, price, description, id) => {
 const deleteAll = () => {
     let contenitore = document.getElementById(`cart`)
     contenitore.innerHTML = ``;
+    const totale = document.querySelector("#totalPrice");
+    totale.innerHTML = `Totale carrello: 0.00`;
   }
 
 // FUNZIONE PER TOGLIERE UN ARTICOLO DAL CARRELLO
 function removeArticle(idArticle, price) {
     const totale = document.querySelector("#totalPrice");
-    console.log(price);
     price = (Number(price));
     totCart-=price;
     totale.innerHTML = `Totale carrello: €${totCart.toFixed(2)}`;
