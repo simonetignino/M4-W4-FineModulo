@@ -15,3 +15,8 @@ TIPS:
 - per GET e POST possiamo usare questo endpoint: ""
 - per PUT e DELETE è necessario specificare l'id
 - Ogni chiamata deve essere autenticata, il token per può essere preso qui ""
+--------------------------------------------
+EXTRA: 
+() Aggiungere spinner per il caricamento del prodotto nel backoffice
+() Aggiungere card con il caricamento 
+() Aggiungere una campo di input per effettuare una ricerca
