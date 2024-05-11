@@ -5,29 +5,31 @@ const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNlMzg4ZDcyYjNl
 const url = "https://striveschool-api.herokuapp.com/api/product/" + id;
 
 window.onload = async () => {
-    const response = await fetch(url, {
-        method: "GET",
-        headers: {
-            "Authorization": `Bearer ${token}`, 
-        },
-    });
-    const article = await response.json()
-    // console.log(article);
-    const container = document.getElementById(`article`)
-    container.innerHTML = `
-    <div class="product d-flex mt-5">
-        <div class="img-product">
-            <img src="${article.imageUrl}" alt="immagine articolo">
-        </div>
-        <div class="info-article mx-5">
-            <h2>${article.name}</h2>
-            <p class="mt-4">${article.description}</p>
-            <p class="fw-bold">${article.brand}</p>
-            <p>€${article.price}</p>
-            <button class="btn btn-success" onclick="addToCart('${article.name}', '${article.price}', '${article._id}' )">Aggiungi al Carrello</button>
-        </div>
-    </div>
-    `
+  mostraSpinner();
+  const response = await fetch(url, {
+      method: "GET",
+      headers: {
+          "Authorization": `Bearer ${token}`, 
+      },
+  });
+  const article = await response.json()
+  // console.log(article);
+  nascondSpinner();
+  const container = document.getElementById(`article`)
+  container.innerHTML = `
+  <div class="product d-flex mt-5">
+      <div class="img-product">
+          <img src="${article.imageUrl}" alt="immagine articolo">
+      </div>
+      <div class="info-article mx-5">
+          <h2>${article.name}</h2>
+          <p class="mt-4">${article.description}</p>
+          <p class="fw-bold">${article.brand}</p>
+          <p>€${article.price}</p>
+          <button class="btn btn-success" onclick="addToCart('${article.name}', '${article.price}', '${article._id}' )">Aggiungi al Carrello</button>
+      </div>
+  </div>
+  `
 }
 
 let totCart = 0;
@@ -64,4 +66,11 @@ function removeArticle(idArticle, price) {
     totale.innerHTML = `Totale carrello: €${totCart.toFixed(2)}`;
     const card = document.getElementById(idArticle);
     card.remove();
+}
+// FUNZIONE PER IL CARICAMENTO
+function mostraSpinner() {
+  document.getElementById(`spinner`).style.display="flex";
+}
+function nascondSpinner() {
+  document.getElementById(`spinner`).style.display="none";
 }

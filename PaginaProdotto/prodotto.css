@@ -6,3 +6,7 @@
 .info-article{
     width: 400px;
 }
+
+#spinner {
+    display: flex;
+}

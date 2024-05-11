@@ -17,7 +17,7 @@ TIPS:
 - Ogni chiamata deve essere autenticata, il token per può essere preso qui ""
 --------------------------------------------
 EXTRA: 
-() Aggiungere spinner per il caricamento del prodotto nel backoffice
+(x) Aggiungere spinner per il caricamento del prodotto nel backoffice
 () Aggiungere card con il caricamento 
 () Aggiungere una campo di input per effettuare una ricerca
 () Aggiungere focus sul nome del prodotto quando abilito la modifica

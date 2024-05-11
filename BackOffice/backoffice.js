@@ -9,6 +9,7 @@ const paramId = urlParams.get('id');
 
 const addArticle = async() => {
     event.preventDefault()
+    mostraSpinner();
 
     const name = document.getElementById("name").value;
     const description = document.getElementById("description").value;
@@ -32,6 +33,7 @@ const addArticle = async() => {
         body: JSON.stringify(product),
     })
     if (response.ok) {
+        nascondSpinner();
         alert("articolo aggiunto con successo");
         resetForm(name, description, imageUrl, brand, price);
     }
@@ -41,6 +43,7 @@ const addArticle = async() => {
 
 // FUNZIONE PER MOSTRARE LA LISTA DEGLI ARTICOLI (SOLO BACKOFFICE)
 const showArticle = async () => {
+    mostraSpinner();
     const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -53,6 +56,7 @@ const showArticle = async () => {
     // console.log(articlesContainer);
 
     if(articlesContainer) {
+        nascondSpinner();
         articlesContainer.innerHTML = articles.map((article) => 
             `<div id="${article._id}" class="d-flex align-items-center">
                 <div class="w-50 overflow-hidden" id="article-name ">
@@ -68,6 +72,7 @@ const showArticle = async () => {
 
 // FUNZIONE PER CANCELLARE UN ARTICOLO 
 const deleteArticle = async () => {
+    mostraSpinner()
     const id = event.target.parentNode.id;
     // console.log(id);
     const response = await fetch(url + id, {
@@ -77,6 +82,7 @@ const deleteArticle = async () => {
         }
     });
     if (response.ok) {
+        nascondSpinner();
         alert(`Articolo cancellato con successo`)
         await showArticle();
     }
@@ -145,42 +151,10 @@ const updateProduct = async () => {
     }
 }
 
-
-
-// FUNZIONE PER AGGIUNGERE UNA CARD ARTICOLO
-// function addCardArticle(product) {
-//     // Creo un nuovo div per la card utente
-//     const card = document.createElement("div");
-//     card.classList.add("product-card");
-
-//     // Creo i tag per i vari dati dell'articolo
-//     const name = creaElementoConTesto("h3", product.name);
-//     const description = creaElementoConTesto("p", product.description);
-//     const imageUrl = creaElementoConTesto("img", product.imageUrl);
-//     const brand = creaElementoConTesto("p", product.brand);
-//     const price = creaElementoConTesto("p", product.price);
-
-//     card.appendChild(name);
-//     card.appendChild(description);
-//     card.appendChild(imageUrl);
-//     card.appendChild(brand);
-//     card.appendChild(price);
-// }
-
-// // FUNZIONE PER CREARE UN TAG HTML CON DEL TESTO 
-// function creaElementoConTesto(tipoDiTag, testo) {
-//     const tag = document.createElement(tipoDiTag);
-//     tag.textContent = testo;
-//     return tag;
-// }
-
-// function infoApi() {
-//     fetch(url, {
-//         headers: {
-//             "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNlMzg4ZDcyYjNlYTAwMTU3MWZjZjAiLCJpYXQiOjE3MTUzNTM3NDEsImV4cCI6MTcxNjU2MzM0MX0.XbyKU3YTRF6pKCqAz_xIKR0dDq4gBqFftfa0Ac2Mv80"
-//         }
-//     })
-//     .then((response) => response.json())
-//     .then((data) => console.log(data))
-// }
-
+// FUNZIONE PER IL CARICAMENTO 
+function mostraSpinner() {
+    document.getElementById(`spinner`).style.display="flex";
+  }
+function nascondSpinner() {
+    document.getElementById(`spinner`).style.display="none";
+  }

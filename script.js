@@ -5,6 +5,7 @@ window.onload = async () => {
     await showArticle();
 }
 const showArticle = async () => {
+    mostraSpinner();
     const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -17,6 +18,7 @@ const showArticle = async () => {
     // console.log(articlesContainer);
 
     if(articlesContainer) {
+        nascondSpinner();
         articlesContainer.innerHTML = articles.map((article) => 
             `<div class="col-2 col-md-3 col-lg-4 card-product">
                 <div class="card shadow-sm w-100 h-100">
@@ -74,4 +76,12 @@ function removeArticle(idArticle, price) {
     totale.innerHTML = `Totale carrello: €${totCart.toFixed(2)}`;
     const card = document.getElementById(idArticle);
     card.remove();
+}
+
+//FUNZIONE PER MOSTRARE IL CARICAMENTO 
+function mostraSpinner() {
+    document.getElementById(`spinner`).style.display="flex";
+}
+function nascondSpinner() {
+    document.getElementById(`spinner`).style.display="none";
 }
