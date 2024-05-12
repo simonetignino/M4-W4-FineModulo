@@ -18,8 +18,13 @@ TIPS:
 --------------------------------------------
 EXTRA: 
 (x) Aggiungere spinner per il caricamento del prodotto nel backoffice
-() Aggiungere card con il caricamento 
+() Aggiungere card con il caricamento
 () Aggiungere una campo di input per effettuare una ricerca
-() Aggiungere focus sul nome del prodotto quando abilito la modifica
-() Nascondere l'elenco dei prodotti quando sono in modifica
+(x) Aggiungere focus sul nome del prodotto quando abilito la modifica
 (x) Nascondere, nell'elenco dei prodotti, il nome quando è troppo lungo mettendo i tre pallini
+--------------------------------------------
+NOTE PER LORENZO 
+- Il monitor non si aggiunge al carrello, ho provato a cancellarlo e modificarlo, ma non cambia niente 
+- Nel backoffice, per modificare un articolo, devi cliccare su "mostra elenco articoli" poi clicchi su "modifica" nell'articolo e poi, dopo aver effettuato la modifica, clicca su "conferma" accanto al tasto aggiungi
+
+Inoltre volevo ringraziarti per l'aiuto che mi hai dato in questi giorni <3! 

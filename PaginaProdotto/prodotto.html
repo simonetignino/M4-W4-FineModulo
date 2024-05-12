@@ -11,37 +11,36 @@
 <body>
 
     <header data-bs-theme="dark">
-        <div class="navbar navbar-dark bg-dark shadow-sm">
-          <div class="container d-flex justify-content-between align-items-center">
-            <div class="nav-info d-flex">
-              <a href="#" class="navbar-brand d-flex align-items-center">
-                <strong class="h3">Marketplace</strong>
-              </a>
-              <a class="mx-3 navbar-brand" href="/index.html">Home</a>
-              <a class="mx-3 navbar-brand" href="/BackOffice/backoffice.html">BackOffice</a>
-            </div>
-            <div class="buttons">
-              <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                <i class="bi bi-cart fs-3"></i>
-              </button>
-              
-              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title pb-2 border-bottom w-75" id="offcanvasExampleLabel">Carrello</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+          <div class="nav-info d-flex">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+              <strong class="h3">Marketplace</strong>
+            </a>
+            <a class="mx-3 navbar-brand" href="/index.html">Home</a>
+            <a class="mx-3 navbar-brand" href="/BackOffice/backoffice.html">BackOffice</a>
+          </div>
+          <div class="buttons">
+            <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+              <i class="bi bi-cart fs-3"></i>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title pb-2 border-bottom w-75" id="offcanvasExampleLabel">Carrello</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <div id="cart" class="row g-0">
                 </div>
-                <div class="offcanvas-body">
-                  <div id="cart" class="row g-0">
-                  </div>
-                  <div class="totalCart">
-                    <p class="mt-2" id="totalPrice"></p>
-                  </div>
-                  <button class="btn btn-danger mt-5" onclick="deleteAll()">Svuota</button>
+                <div class="totalCart">
+                  <p class="mt-2" id="totalPrice"></p>
                 </div>
+                <button class="btn btn-danger mt-5" onclick="deleteAll()">Svuota</button>
               </div>
             </div>
           </div>
         </div>
+      </div>
       </header>
 
     <main>
@@ -51,7 +50,6 @@
         </div>
       </div>
       <div class="container d-flex align-items-center justify-content-center" id="article">
-      
       </div>
     </main>
 

@@ -5,8 +5,8 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const paramId = urlParams.get('id');
 
-// FUNZIONE PER AGGIUNGERE UN NUOVO ARTICOLO
 
+// FUNZIONE PER AGGIUNGERE UN NUOVO ARTICOLO
 const addArticle = async() => {
     event.preventDefault()
     mostraSpinner();
@@ -108,6 +108,7 @@ const getValueForm = async (idInInput) => {
                 "Authorization": `Bearer ${token}`, 
             }
         })
+        mostraConferma();
         const product = await response.json();
         document.getElementById(`name`).value = product.name;   
         document.getElementById(`description`).value = product.description;   
@@ -116,6 +117,7 @@ const getValueForm = async (idInInput) => {
         document.getElementById(`price`).value = product.price;  
         idArticolo = product._id; 
     } 
+    focusName();
 }
 
 // FUNZIONE PER MODIFICARE UN ARTICOLO
@@ -149,6 +151,7 @@ const updateProduct = async () => {
         await showArticle();
         resetForm(name, description, imageUrl, brand, price);
     }
+    nascondiConferma();
 }
 
 // FUNZIONE PER IL CARICAMENTO 
@@ -158,3 +161,17 @@ function mostraSpinner() {
 function nascondSpinner() {
     document.getElementById(`spinner`).style.display="none";
   }
+
+// FUNZIONE PER MOSTRARE E NASCONDERE IL TASTO CONFERMA
+function mostraConferma () {
+    document.getElementById(`conferma`).style.display = `flex`;
+}
+function nascondiConferma () {
+    document.getElementById(`conferma`).style.display = `none`;
+}
+
+// FUNZIONE PER IL FOCUS SULLA PRIMA CASELLA DI INPUT
+function focusName() {
+    const name = document.getElementById(`name`);
+    name.focus();
+}
