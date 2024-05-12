@@ -19,7 +19,7 @@ TIPS:
 EXTRA: 
 (x) Aggiungere spinner per il caricamento del prodotto nel backoffice
 () Aggiungere card con il caricamento
-() Aggiungere una campo di input per effettuare una ricerca
+(x) Aggiungere una campo di input per effettuare una ricerca
 (x) Aggiungere focus sul nome del prodotto quando abilito la modifica
 (x) Nascondere, nell'elenco dei prodotti, il nome quando è troppo lungo mettendo i tre pallini
 --------------------------------------------
