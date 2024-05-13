@@ -22,10 +22,13 @@
           <a class="mx-3 navbar-brand" href="/BackOffice/backoffice.html">BackOffice</a>
         </div>
         <div class="buttons">
-          <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <button class="btn btn-dark position-relative p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
             <i class="bi bi-cart fs-3"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="total-articles">
+              0
+              <span class="visually-hidden"></span>
+            </span>
           </button>
-          
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
               <h5 class="offcanvas-title pb-2 border-bottom w-75" id="offcanvasExampleLabel">Carrello</h5>

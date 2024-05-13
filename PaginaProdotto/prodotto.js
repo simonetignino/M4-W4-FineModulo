@@ -26,13 +26,14 @@ window.onload = async () => {
           <p class="mt-4">${article.description}</p>
           <p class="fw-bold">${article.brand}</p>
           <p>€${article.price}</p>
-          <button class="btn btn-success" onclick="addToCart('${article.name}', '${article.price}', '${article._id}' )">Aggiungi al Carrello</button>
+          <button class="btn btn-success" onclick="addToCart('${article.name}', '${article.price}', '${article.description}'. '${article._id}' )">Aggiungi al Carrello</button>
       </div>
   </div>
   `
 }
 
 let totCart = 0;
+let totArticle= 0;
 
 // FUNZIONE PER AGGIUNGERE UN ARTICOLO AL CARRELLO
 const addToCart = (title, price, description, id) => {
@@ -50,6 +51,9 @@ const addToCart = (title, price, description, id) => {
     price = (Number(price));
     totCart+=price;
     totale.innerHTML = `Totale carrello: €${totCart.toFixed(2)}`;
+    const totaleArticoli = document.querySelector("#total-articles")
+    totArticle++;
+    totaleArticoli.innerHTML = totArticle;
   };
 
 // FUNZIONE PER SVUOTARE IL CARRELLO 
@@ -66,6 +70,9 @@ function removeArticle(idArticle, price) {
     totale.innerHTML = `Totale carrello: €${totCart.toFixed(2)}`;
     const card = document.getElementById(idArticle);
     card.remove();
+    const totaleArticoli = document.querySelector("#total-articles")
+    totArticle--;
+    totaleArticoli.innerHTML = totArticle;
 }
 // FUNZIONE PER IL CARICAMENTO
 function mostraSpinner() {

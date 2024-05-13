@@ -30,8 +30,8 @@ const showArticle = async () => {
                         <p class="card-text">${article.description}.</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="./PaginaProdotto/prodotto.html?id=${article._id}" class='btn btn-sm btn-outline-secondary'>View</a>
-                                <button type="button" class="btn btn-sm btn-success" onclick="addToCart('${article.name}', '${article.price}', '${article.description}', '${article._id}')">Add To Cart</button>
+                                <a href="./PaginaProdotto/prodotto.html?id=${article._id}" class='btn btn-sm btn-outline-secondary'>Dettagli<i class="bi bi-info-circle ms-2"></i></a>
+                                <button type="button" class="btn btn-sm btn-success" onclick="addToCart('${article.name}', '${article.price}', '${article.description.replace(/'/g, ' \\\' ')}', '${article._id}')">Aggiungi<i class="bi bi-cart ms-2"></i></button>
                             </div>
                             <small class="text-body-secondary">€${article.price}</small>
                         </div>
@@ -44,6 +44,7 @@ const showArticle = async () => {
     }
 }
 let totCart = 0;
+let totArticle = 0;
 
 // FUNZIONE PER AGGIUNGERE UN ARTICOLO AL CARRELLO
 const addToCart = (title, price, description, id) => {
@@ -61,6 +62,9 @@ const addToCart = (title, price, description, id) => {
     price = (Number(price));
     totCart+=price;
     totale.innerHTML = `Totale carrello: €${totCart.toFixed(2)}`;
+    const totaleArticoli = document.querySelector("#total-articles")
+    totArticle++;
+    totaleArticoli.innerHTML = totArticle;
   };
 
 // FUNZIONE PER SVUOTARE IL CARRELLO 
@@ -69,6 +73,8 @@ const deleteAll = () => {
     contenitore.innerHTML = ``;
     const totale = document.querySelector("#totalPrice");
     totale.innerHTML = `Totale carrello: 0.00`;
+    const totaleArticoli = document.querySelector("#total-articles")
+    totaleArticoli.innerHTML = 0;
   }
 
 // FUNZIONE PER TOGLIERE UN ARTICOLO DAL CARRELLO
@@ -79,6 +85,9 @@ function removeArticle(idArticle, price) {
     totale.innerHTML = `Totale carrello: €${totCart.toFixed(2)}`;
     const card = document.getElementById(idArticle);
     card.remove();
+    const totaleArticoli = document.querySelector("#total-articles")
+    totArticle--;
+    totaleArticoli.innerHTML = totArticle;
 }
 
 //FUNZIONE PER MOSTRARE IL CARICAMENTO 
@@ -108,8 +117,8 @@ filterInput.addEventListener(`input`, () =>{
                     <p class="card-text">${articolo.description}.</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href="./PaginaProdotto/prodotto.html?id=${articolo._id}" class='btn btn-sm btn-outline-secondary'>View</a>
-                            <button type="button" class="btn btn-sm btn-success" onclick="addToCart('${articolo.name}', '${articolo.price}', '${articolo.description}', '${articolo._id}')">Add To Cart</button>
+                            <a href="./PaginaProdotto/prodotto.html?id=${articolo._id}" class='btn btn-sm btn-outline-secondary'>Dettagli<i class="bi bi-info-circle ms-2"></i></a>
+                            <button type="button" class="btn btn-sm btn-success" onclick="addToCart('${articolo.name}', '${articolo.price}', '${articolo.description}', '${articolo._id}')">Aggiungi<i class="bi bi-cart ms-2"></i></button>
                         </div>
                         <small class="text-body-secondary">€${articolo.price}</small>
                     </div>

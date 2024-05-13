@@ -62,8 +62,8 @@ const showArticle = async () => {
                 <div class="w-50 overflow-hidden" id="article-name ">
                     <h4>${article.name}</h4>
                 </div>
-                <button class="btn btn-warning m-3" onclick="getValueForm('${article._id}')">Modifica</button>
-                <button id=""class="btn btn-danger" onclick="deleteArticle()">Cancella</button>
+                <button class="btn btn-warning m-3" onclick="getValueForm('${article._id}')"><i class="bi bi-pencil-square me-2"></i>Modifica</button>
+                <button id=""class="btn btn-danger" onclick="deleteArticle()"><i class="bi bi-trash me-2"></i>Cancella</button>
             </div>`
         ).join(``);
         // console.log(articlesContainer);
@@ -97,7 +97,7 @@ function resetForm (name, description, imageUrl, brand, price) {
     price = document.getElementById("price").value = "";
 }
 
-// FUNZIONE PER COMPILARE IN AUTOMATICO IL FORM CON I DATI DELL'UTENTE DA MODIFICARE
+// FUNZIONE PER COMPILARE IN AUTOMATICO IL FORM CON I DATI DELL'ARTICOLO DA MODIFICARE
 //ho creato questa varibiale per segnarmi l'id dell'articolo in modifica
 let idArticolo = "";
 const getValueForm = async (idInInput) => {
@@ -147,7 +147,7 @@ const updateProduct = async () => {
         body: JSON.stringify(updatedProduct)
     });
     if(response.ok) {
-        alert(`Utente aggiornato con successo`);
+        alert(`Articolo aggiornato con successo`);
         await showArticle();
         resetForm(name, description, imageUrl, brand, price);
     }
